@@ -40,7 +40,9 @@ You can use the default configuration file provided or create your custom config
 Create or modify the sysmonconfig-export.xml configuration file to include desired logging and monitoring rules.
 To update the Sysmon configuration without reinstalling, use the following command in a terminal:
 - sysmon -c sysmonconfig-export.xml
-Verify Sysmon is running correctly by checking the Event Viewer under Applications and Services Logs > Microsoft > Windows > Sysmon.
+Verify Sysmon is running correctly by checking the Event Viewer under
+- Applications and Services Logs > Microsoft > Windows > Sysmon.
+  
 4. Install Mimikatz
 Download Mimikatz from the official GitHub repository.
 - https://github.com/gentilkiwi/mimikatz/releases
@@ -50,7 +52,9 @@ Generate Alerts with Mimikatz
 Run Mimikatz to simulate malicious activities that Sysmon should detect. For example, to list user credentials, execute:
 - .\mimikatz.exe
 Then in the Mimikatz prompt, run:
+
 - sekurlsa::logonpasswords
+  
 Check the Event Viewer to ensure Sysmon is capturing the events. Look for alerts under Applications and Services Logs > Microsoft > Windows > Sysmon.
 
 DISCLAIMER!!!!
