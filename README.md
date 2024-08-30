@@ -38,27 +38,20 @@ You can use the default configuration file provided or create your custom config
 
 3. Configure Sysmon
 Create or modify the sysmonconfig-export.xml configuration file to include desired logging and monitoring rules.
-To update the Sysmon configuration without reinstalling, use:
-cmd
-Copy code
-sysmon -c sysmonconfig-export.xml
+To update the Sysmon configuration without reinstalling, use the following command in a terminal:
+- sysmon -c sysmonconfig-export.xml
 Verify Sysmon is running correctly by checking the Event Viewer under Applications and Services Logs > Microsoft > Windows > Sysmon.
 4. Install Mimikatz
 Download Mimikatz from the official GitHub repository.
+- https://github.com/gentilkiwi/mimikatz/releases
 Extract the Mimikatz archive to a folder on your VM.
 Open a Command Prompt as Administrator and navigate to the extracted folder.
 Generate Alerts with Mimikatz
 Run Mimikatz to simulate malicious activities that Sysmon should detect. For example, to list user credentials, execute:
-cmd
-Copy code
-.\mimikatz.exe
+- .\mimikatz.exe
 Then in the Mimikatz prompt, run:
-mimikatz
-Copy code
-sekurlsa::logonpasswords
+- sekurlsa::logonpasswords
 Check the Event Viewer to ensure Sysmon is capturing the events. Look for alerts under Applications and Services Logs > Microsoft > Windows > Sysmon.
-Monitoring Alerts
-Use a SIEM (Security Information and Event Management) solution to aggregate and monitor logs.
-Configure alert rules in your SIEM based on Sysmon logs to detect and respond to suspicious activities.
-Disclaimer
+
+DISCLAIMER!!!!
 This guide is intended for educational and testing purposes only. Misuse of Mimikatz and similar tools can lead to legal consequences. Always ensure you have proper authorization before conducting any security testing or assessments.
